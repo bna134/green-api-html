@@ -331,7 +331,7 @@
       const text = getField('messageText') || '';
       const instanceId = getField('instanceId') || 'instanceId_placeholder';
       const token = getField('apiToken') || 'apiToken_placeholder';
-      fetch({url:`{https://green-api-back-production.up.railway.app/sending/message?idInstance=${instanceId}&apiTokenInstance=${token}`, body: {
+      fetch({method: 'POST', url:`{https://green-api-back-production.up.railway.app/sending/message?idInstance=${instanceId}&apiTokenInstance=${token}`, body: {
         chatId: `${phone}@c.us`,
         message: text
       }})
@@ -350,7 +350,7 @@
       const url = getField('fileUrl') || '';
       const instanceId = getField('instanceId') || 'instanceId_placeholder';
       const token = getField('apiToken') || 'apiToken_placeholder';
-      fetch({url:`{https://green-api-back-production.up.railway.app/sending/file?idInstance=${instanceId}&apiTokenInstance=${token}`, body: {
+      fetch({method: 'POST', url:`{https://green-api-back-production.up.railway.app/sending/file?idInstance=${instanceId}&apiTokenInstance=${token}`, body: {
         chatId: `${phone}@c.us`,
         fileUrl: url,
         filename: 'file'
