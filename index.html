@@ -327,7 +327,7 @@
     });
 
     document.getElementById('btnSendMessage').addEventListener('click', function(){
-      const phone = getField('phoneSend') || '';
+      const phone = getField('phoneFile') || '';
       const text = getField('messageText') || '';
       const instanceId = getField('instanceId') || 'instanceId_placeholder';
       const token = getField('apiToken') || 'apiToken_placeholder';
