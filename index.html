@@ -336,8 +336,6 @@
       fetch(`https://green-api-back-production.up.railway.app/sending/message?idInstance=${instanceId}&apiTokenInstance=${token}`, {method: 'POST', body: {
         chatId: `${phone}@c.us`,
         message: text
-      }, headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
       }})
         .then(response => {
         if (!response.ok) throw new Error('Network error');
