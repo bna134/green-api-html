@@ -333,24 +333,12 @@
       const instanceId = getField('instanceId') || 'instanceId_placeholder';
       const token = getField('apiToken') || 'apiToken_placeholder';
 
-      const getCircularReplacer = () => {
-        const seen = new WeakSet();
-        return (key, value) => {
-          if (typeof value === 'object' && value !== null) {
-            if (seen.has(value)) {
-              return;
-            }
-            seen.add(value);
-          }
-          return value;
-        };
-      };
       fetch(`https://green-api-back-production.up.railway.app/sending/message?idInstance=${instanceId}&apiTokenInstance=${token}`, {method: 'POST', body: JSON.stringify({
         chatId: `${phone}@c.us`,
         message: text
-      }), headers: JSON.stringify({
-        "Content-Type": "application/json"
-      }, getCircularReplacer())})
+      }), headers: {
+        'Content-Type': 'application/json'
+      }})
         .then(response => {
         if (!response.ok) throw new Error('Network error');
         return response.json();
